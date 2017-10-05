@@ -22,19 +22,23 @@ class Settings:
 
         self.number_of_players    = number_of_players
         self.number_of_spies      = Settings.spy_count_lookup[number_of_players]
+        self.number_of_antifa     = self.number_of_players - self.number_of_spies
         self.missions             = Settings.missions_lookup[number_of_players]
         self.special_fourth_round = number_of_players >= 7
+        self.number_to_pass       = int(number_of_players / 2) + 1
+
+        print(self)
 
 
     def __str__(self):
 
-        title    = '\n*** Current Settings ***\n\n'
+        title    = '\n*** Current Settings ***\n'
         players  = 'Number of players   : {}\n'.format(self.number_of_players)
         spies    = 'Number of spies     : {}\n'.format(self.number_of_spies)
         missions = 'Players per mission : {}\n'.format(self.missions)
         fourth   = 'Two fails required on the fourth round? : {}\n'.format(self.special_fourth_round)
 
-        return title + players + spies + missions + '\n' + fourth
+        return title + players + spies + missions + fourth
 
 
 

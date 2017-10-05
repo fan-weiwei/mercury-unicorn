@@ -16,6 +16,15 @@ class SettingsTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             Settings(number_of_players=11)
 
+    def test_spies_plus_antifa_equal_total(self):
+        for n in range(5, 11):
+            settings = Settings(number_of_players=n)
+            spies = settings.number_of_spies
+            antifa = settings.number_of_antifa
+            players = settings.number_of_players
+            self.assertEqual(spies + antifa, n)
+            self.assertEqual(spies + antifa, players)
+
 
 if __name__ == '__main__':
     unittest.main()
