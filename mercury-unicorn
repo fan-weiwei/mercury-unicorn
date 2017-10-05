@@ -1,0 +1,20 @@
+#!/usr/local/bin/python3
+
+"""
+Mercury Unicorn
+
+Usage:
+  mercury-unicorn (-h | --help)
+  mercury-unicorn --version
+  mercury-unicorn run
+
+"""
+
+from docopt import docopt
+from run import run
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version='mercury-unicorn 1.0')
+
+    if arguments['run']:
+        run()
